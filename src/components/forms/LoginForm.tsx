@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 /*
@@ -27,6 +28,8 @@ const LoginForm = () => {
         password: ''
     }
 
+    let navigate = useNavigate();
+
     return (
         <div>
             <h4>Login Form</h4>
@@ -40,12 +43,13 @@ const LoginForm = () => {
                     // alert(JSON.stringify(values, null, 2))
                     // console.table(values)
 
-                    login(values.email, values.password).then((response: AxiosResponse) => { //import authservice
+                    login(values.email, values.password).then(async (response: AxiosResponse) => { //import authservice
 
                         if(response.status === 200){
                             if(response.data.token){
                                console.table(response.data);
-                               sessionStorage.setItem('sessionJWTToken', response.data.token);
+                               await sessionStorage.setItem('sessionJWTToken', response.data.token);
+                               navigate('/');
                          } else {
                             throw new Error('Error Generating token')
                          }

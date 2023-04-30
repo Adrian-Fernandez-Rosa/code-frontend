@@ -378,14 +378,186 @@ import React from "react";
 export const HomePage = () => {
     return 
      // eslint-disable-next-line no-lone-blocks
-     {
+     (
         <div>
             <h1>
                 Home Page
             </h1>
         </div>
-     }
+     )
 }
 ```
 
 ahora haremos el enrutado en App.ts
+
+```typescript 
+
+import React from 'react';
+import './App.css';
+
+// React Router DOM Imports
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
+import { HomePage } from './pages/HomePage';
+import { LoginPage } from './pages/LoginPage';
+import { RegisterPage } from './pages/RegisterPage';
+import { KatasPage } from './pages/KatasPages';
+import { KatasDetailPage } from './pages/KatasDetailPage';
+
+// import LoginForm from './components/forms/LoginForm';
+// import RegisterForm from './components/forms/RegisterForm';
+
+function App() {
+  return (
+    <div className="App">
+      {/* Render Login Form */}
+      {/* <LoginForm /> */}
+      {/* <RegisterForm /> */}
+      <Router>
+        <nav>
+          <ul>
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
+              <Link to='/login'>Login</Link>
+            </li>
+            <li>
+              <Link to='/register'>Register</Link>
+            </li>
+            <li>
+              <Link to='/katas'>Katas</Link>
+            </li>
+          </ul>
+        </nav>
+        {/* TODO: Export to Routes Folder */}
+        <Routes>
+          {/* Routes definition */}
+          <Route path='/' element={<HomePage />}></Route>
+          <Route path='/login' element={<LoginPage />}></Route>
+          <Route path='/register' element={<RegisterPage />}></Route>
+          <Route path='/katas' element={<KatasPage />}></Route>
+          <Route path='/katas/:id' element={<KatasDetailPage />}></Route>
+          {/* Redirecto when Page Not Found */}
+          <Route 
+            path='*' 
+            element={<Navigate to='/' replace />}>
+          </Route>
+        </Routes>
+      </Router>
+    </div>
+  );
+}
+
+export default App;
+```
+
+en pages/KatasPages.tsx
+
+```typescript
+import React from "react";
+
+import { useNavigate } from "react-router-dom";
+
+export const KatasPage = () => {
+
+    let navigate = useNavigate();
+
+    /**
+     * Method to navigate to Kata Details
+     * @param id 
+     */
+    const navigateToKataDetail = (id: number) => {
+
+        navigate(`/katas/${id}`)
+    }
+    return (
+        <div>
+            <h1>
+               Katas Page
+            </h1>
+            {/*  TODO: Real Katas */}
+            <ul>
+                <li onClick={ () => navigateToKataDetail(1)}>
+                    First Kata
+                </li>
+                <li onClick={ () => navigateToKataDetail(2)}>
+                    Second Kata
+                </li>
+            </ul>
+        </div>
+    )
+}
+```
+
+y en katasDetailPage
+```typescript
+import React from "react";
+
+// React Router Dom Imports
+import { useNavigate, useParams } from "react-router-dom";
+
+export const KatasDetailPage = () => {
+
+    // Find id form params
+    let { id } = useParams();
+
+    // Variable to navigate between stack of routes
+    let navigate = useNavigate();
+
+
+    
+    return (
+        <div>
+            <h1>
+                Katas Detail Page: { id }
+            </h1>
+        </div>
+    )
+}
+```
+
+
+## Lo anterior nos permite navegar de uno a otro
+
+ahora creamos el directorio hooks con el archivo useSessionStorage.ts
+
+```typescript
+export const useSessionStorage =   (key: string): any | boolean => {
+
+    // Comprobando si tengo token guardado en sessionStorage
+    const storedValue = sessionStorage.getItem(key);
+
+    if(!storedValue){
+        return false;
+    }else {
+        return storedValue;
+    }
+}
+```
+
+
+y ahora para redirigir siempre que no estemos logeados aplicar la logica siguiente en cada page
+
+```typescript
+
+  let loggedIn = useSessionStorage('sessionJWTToken');
+    let navigate = useNavigate();
+
+
+    useEffect(() => {
+        if(!loggedIn){
+            return navigate('/login');
+        }
+    }, [loggedIn]) // cada vez que cambie el valor se vuelve a ejecutar
+
+```
+
+## ahora creamos una especie de textbox para que los usuarios puedan escribir código en la web
+para ello debemos instalar
+
+```sql
+npm i prism-react-renderer
+```
+
+
+
