@@ -573,5 +573,6 @@ ADEMAS de seguir el tutorial de instalacion instalaremos
 npm install @mui/icons-material
 ```
 
-# en este readme no se documento la forma del katadetails ni el editor porque ya lo tengo claro. ademas luego de que egg cooperacion ( egg educacion ) y su ex staff me arruinara la carrera no tengo tiempo de ser prolijo.
+# en este readme no se documento la forma del katadetails ni el editor porque ya lo tengo claro.
 
+en app.tsx tene,
