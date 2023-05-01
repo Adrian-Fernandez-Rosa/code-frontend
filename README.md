@@ -573,6 +573,6 @@ ADEMAS de seguir el tutorial de instalacion instalaremos
 npm install @mui/icons-material
 ```
 
-# en este readme no se documento la forma del katadetails ni el editor porque ya lo tengo claro.
+# en este readme no se documento la forma del katadetails ni el editor porque ya lo tengo claro. 
 
-en app.tsx tene,
+en app.tsx tengo el enrutado, ya que aprendi una arquitectura correcta se mueve a routes
