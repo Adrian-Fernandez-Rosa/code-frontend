@@ -560,4 +560,15 @@ npm i prism-react-renderer
 ```
 
 
+## Material UI
 
+```typescript
+npm install @mui/material @emotion/react @emotion/styled
+```
+
+https://mui.com/material-ui/getting-started/installation/
+
+ADEMAS de seguir el tutorial de instalacion instalaremos
+```typescript
+npm install @mui/icons-material
+```

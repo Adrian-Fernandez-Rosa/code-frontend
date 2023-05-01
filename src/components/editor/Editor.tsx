@@ -5,24 +5,19 @@ import { Highlight, themes } from 'prism-react-renderer';
 interface EditorProps {
     language?: any,
     children?: any,
+    solution?: any
 
 }
 
-export const Editor = ( {language, children}: EditorProps) => {
+export const Editor = ( {language, children, solution}: EditorProps) => {
 
-    const codeExample = `
-(function someDemo() {
-var test ="Hello World!"
-console.log(test)
-})();
-//hola
-return () => <App />
-    `
+  
+    
     return (
         <Highlight
         theme={themes.vsDark}
-        code={codeExample}
-        language="jsx"
+        code={children}
+        language="typescript"
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre style={style}>
