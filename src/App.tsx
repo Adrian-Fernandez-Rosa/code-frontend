@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import { AppRoutes } from './routes/Routes';
 import { Copyright } from './components/dashboard/CopyRight';
+import { StickyFooter } from './components/dashboard/StickyFooter';
 
 // import LoginForm from './components/forms/LoginForm';
 // import RegisterForm from './components/forms/RegisterForm';
@@ -17,7 +18,7 @@ function App() {
       <Router>       
         <AppRoutes />
       </Router>
-      <Copyright />
+      <StickyFooter />
     </div>
   );
 }
