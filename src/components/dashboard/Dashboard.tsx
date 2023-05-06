@@ -108,7 +108,7 @@ const myTheme  = createTheme();
 const DashboardContent = () => {
 
     /**
-     * variable open que se podifica con setOpen y por defecto es true
+     * variable open que se modifica con setOpen y por defecto es true
      */
     const [open, setopen] = useState(true)
     
