@@ -1,5 +1,7 @@
 import React from 'react';
 import LoginForm from '../components/forms/LoginForm';
+import { LoginMaterial } from '../components/forms/LoginMaterial';
+
 
 
 export const LoginPage = () => {
@@ -9,7 +11,8 @@ export const LoginPage = () => {
             <h1>
                 Login Page
             </h1>
-            <LoginForm />
+            {/* <LoginForm /> */}
+            <LoginMaterial />
         </div>
     )
 }
