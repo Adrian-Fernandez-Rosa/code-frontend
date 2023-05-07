@@ -1,14 +1,11 @@
 /* eslint-disable no-unreachable */
 import React from 'react';
+import { Dashboard } from '../components/dashboard/Dashboard';
 
 
 export const HomePage = () => {
 
     return (
-        <div>
-            <h1>
-                Home Page
-            </h1>
-        </div>
+        <Dashboard />
     )
 }

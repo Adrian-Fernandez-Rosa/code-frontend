@@ -8,22 +8,22 @@ import { KatasDetailPage } from '../pages/KatasDetailPage';
 
 export const AppRoutes = () => {
     return (
-        <><nav>
-            <ul>
-                <li>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li>
-                    <Link to='/login'>Login</Link>
-                </li>
-                <li>
-                    <Link to='/register'>Register</Link>
-                </li>
-                <li>
-                    <Link to='/katas'>Katas</Link>
-                </li>
-            </ul>
-        </nav>
+        // <><nav>
+        //     <ul>
+        //         <li>
+        //             <Link to='/'>Home</Link>
+        //         </li>
+        //         <li>
+        //             <Link to='/login'>Login</Link>
+        //         </li>
+        //         <li>
+        //             <Link to='/register'>Register</Link>
+        //         </li>
+        //         <li>
+        //             <Link to='/katas'>Katas</Link>
+        //         </li>
+        //     </ul> 
+        // </nav>
         <Routes>
                 {/* Routes definition */}
                 <Route path='/' element={<HomePage />}></Route>
@@ -36,7 +36,8 @@ export const AppRoutes = () => {
                     path='*'
                     element={<Navigate to='/' replace />}>
                 </Route>
-            </Routes></>
+            </Routes>
+            // </>
 
         
         )
