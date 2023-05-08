@@ -584,7 +584,8 @@ npm i react-simple-code-editor
 ```
 
 ## Otro editor
-
+https://tiptap.dev/installation/react
+ 
 ```typescript
-
+npm install @tiptap/react @tiptap/pm @tiptap/starter-kit --save
 ```
