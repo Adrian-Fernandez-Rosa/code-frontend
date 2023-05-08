@@ -589,3 +589,11 @@ https://tiptap.dev/installation/react
 ```typescript
 npm install @tiptap/react @tiptap/pm @tiptap/starter-kit --save
 ```
+
+## Dropzone-ui
+
+https://www.npmjs.com/package/@dropzone-ui/react
+
+```typescript
+npm i --save @dropzone-ui/react
+```

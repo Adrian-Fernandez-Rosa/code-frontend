@@ -33,6 +33,7 @@ import Paper from '@mui/material/Paper';
 // List for the menu
 import { MenuItems } from './MenuItems';
 import { NewEditor } from '../editor/NewEditor';
+import { FileUploader } from '../uploader/FileUploader';
 // import { NewEditor } from '../editor/NewEditor';
 //  import { TipTapEditor } from '../editor/TipTapEditor';
 
@@ -201,8 +202,10 @@ export const Dashboard = () => {
                                 height: 400
                             }}>
                                 {/* Code Editor */}
-                                 <NewEditor />  
+                                 {/* <NewEditor />   */}
                                 {/* <TipTapEditor />  */}
+                                {/* File Uploader */}
+                                <FileUploader />
                             </Paper>
                         </Grid>
                     </Container>
