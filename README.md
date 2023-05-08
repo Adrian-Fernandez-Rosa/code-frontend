@@ -582,3 +582,9 @@ en app.tsx tengo el enrutado, ya que aprendi una arquitectura correcta se mueve 
 ```typescript 
 npm i react-simple-code-editor
 ```
+
+## Otro editor
+
+```typescript
+
+```
