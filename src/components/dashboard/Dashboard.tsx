@@ -34,7 +34,7 @@ import Paper from '@mui/material/Paper';
 import { MenuItems } from './MenuItems';
 import { NewEditor } from '../editor/NewEditor';
 // import { NewEditor } from '../editor/NewEditor';
-// import { TipTapEditor } from '../editor/TipTapEditor';
+//  import { TipTapEditor } from '../editor/TipTapEditor';
 
 
 // Width for Drawer Menu
@@ -201,8 +201,8 @@ export const Dashboard = () => {
                                 height: 400
                             }}>
                                 {/* Code Editor */}
-                                <NewEditor /> 
-                                {/* <TipTapEditor /> */}
+                                 <NewEditor />  
+                                {/* <TipTapEditor />  */}
                             </Paper>
                         </Grid>
                     </Container>

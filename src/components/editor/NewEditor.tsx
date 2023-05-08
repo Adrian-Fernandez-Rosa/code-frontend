@@ -31,9 +31,20 @@ const styles: any = {
   }
 }
 
+
+const languages: string[] = [
+  "tsx",
+  "typescript",
+  "javascript",
+  "jsx",
+  "python",
+  "java",
+  "go"
+]
+
 // Highlight Component
-const HighlightElement2 = (code: string) => (
-  <Highlight  theme={myTheme} code={code} language='tsx'>
+const HighlightElement2: any = (code: string, language: string) => (
+  <Highlight  theme={myTheme} code={code} language={languages[0]}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <Fragment>
               {tokens.map((line, i) => (
@@ -47,22 +58,38 @@ const HighlightElement2 = (code: string) => (
 );
 
 
+
 export const NewEditor = () => {
 
   const [code, setCode] = useState(codeSnippet);
+  const [languageSelected, setLanguageSelected] = useState(languages[0]);
+ 
+  const handleLanguageChange = (newValue: any) => {
+    setLanguageSelected(newValue);
+  }
 
-  const handleChange = (newCode: string) => {
+  const handleCodeChange = (newCode: string) => {
     setCode(newCode)
   }
 
+
   return (
-    <Editor
-      value={code}
-      onValueChange={handleChange}
-      highlight={HighlightElement2}
-      padding={10}
-      style={styles.root}
-    />
+
+    <div>
+      <select>
+        { languages.map((language, index) => (
+          <option onChange={(value) => handleLanguageChange(value)} value={language} key={index}>{language}</option>
+        ))}
+      </select>
+      <Editor
+        value={code}
+        onValueChange={handleCodeChange}
+        highlight={HighlightElement2}
+        padding={10}
+        style={styles.root}
+      />
+    </div>
+
   )
 
 }
