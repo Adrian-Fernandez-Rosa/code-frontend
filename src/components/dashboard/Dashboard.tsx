@@ -36,7 +36,7 @@ import { NewEditor } from '../editor/NewEditor';
 import { FileUploader } from '../uploader/FileUploader';
 import { FilePondUploader } from '../uploader/FilePondUploader';
 // import { NewEditor } from '../editor/NewEditor';
-//  import { TipTapEditor } from '../editor/TipTapEditor';
+ // import { TipTapEditor } from '../editor/TipTapEditor';
 
 
 // Width for Drawer Menu
@@ -204,7 +204,7 @@ export const Dashboard = () => {
                             }}>
                                 {/* Code Editor */}
                                  {/* <NewEditor />   */}
-                                {/* <TipTapEditor />  */}
+                               {/* <TipTapEditor />   */}
                                 {/* File Uploader */}
                                 {/* <FileUploader /> */}
                                 <FilePondUploader />
