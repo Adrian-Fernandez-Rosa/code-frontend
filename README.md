@@ -605,3 +605,9 @@ npm i --save @dropzone-ui/react
 ```typescript
 npm install react-filepond filepond --save
 ```
+
+se intento reparar tiptapeditor, dejo nota de las dependencias que podrian llegar a funcionar
+    "@tiptap/extension-code-block-lowlight": "^2.0.0-beta.212",
+    "@tiptap/pm": "^2.0.0-beta.212",
+    "@tiptap/react": "^2.0.0-beta.212",
+    "@tiptap/starter-kit": "^2.0.0-beta.212",
