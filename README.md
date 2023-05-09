@@ -597,3 +597,11 @@ https://www.npmjs.com/package/@dropzone-ui/react
 ```typescript
 npm i --save @dropzone-ui/react
 ```
+
+
+<br/>
+## FilePondUploader tsx
+
+```typescript
+npm install react-filepond filepond --save
+```

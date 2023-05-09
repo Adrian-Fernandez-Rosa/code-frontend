@@ -1,63 +1,72 @@
-import * as React from "react";
-import ReactDOM from "react-dom";
-import { Dropzone, FileItem, ExtFile, FullScreen  } from "@dropzone-ui/react";
+import { useState } from "react";
+import { Dropzone, FileItem, FileValidated, FullScreenPreview, VideoPreview } from "@dropzone-ui/react";
 
 export const FileUploader = () => {
-  const [files, setFiles] = React.useState<ExtFile[]>([]);
-  const [imageSrc, setImageSrc] = React.useState<any>(undefined);
 
-  const updateFiles = (incommingFiles: ExtFile[]) => {
-    setFiles(incommingFiles);
-  };
+    const [files, setFiles] = useState<FileValidated[]>([]);
+    const [imageSrc, setImageSrc] = useState<any>(undefined);
+    const [videoSrc, setVideoSrc] = useState<any>(undefined);
 
-  const handleSee = (imageSource: any) => {
-    setImageSrc(imageSource);
-  };
-  const handleClean = (files: ExtFile[]) => {
-    console.log("list cleaned", files);
-  };
+    const updateFiles = (incommingFiles: FileValidated[]) => {
+        setFiles(incommingFiles);
+    };
 
-  const removeFile = (id: string | number | undefined) => {
-    if(id){
-      setFiles(files.filter((x) => x.id !== id));
-    }
-  };
+    const handleSee = (imageSource: any) => {
+        setImageSrc(imageSource);
+    };
 
+    const handleClean = (files: FileValidated[]) => {
+        // console.log("list cleaned", files);
+    };
 
+    const handleWatch = (vidSrc: any) => {
+        setVideoSrc(vidSrc);
+    };
 
-  return (
-    <>
-    <Dropzone 
-    style={{ minWidth: "505px"}}
-    label="Drag'n drop files here or click to browse"
-    onChange={updateFiles}
-     value={files}
-     maxFiles={5}
-     maxFileSize={2998000}
-    // onSubmit={"https://my-awsome-server/upload-my-file"}
-   //  url="https://my-awsome-server/upload-my-file"
-   //fakeUpload
-     >
-      {files.map((file: ExtFile) => (
-        <FileItem 
-        {...file} 
-        preview 
-        key={file.id} 
-        info
-        onDelete={() => removeFile(file.id)}
-        localization={"ES-es"}
-        resultOnTooltip
-        
-        />
-      ))}
+    const removeFile = (id: string | number | undefined) => {
+        if(id){
+            setFiles(files.filter((x) => x.id !== id));
+        }
+    };
 
-<FullScreen
-        open= { imageSrc !== undefined}
-        onClose={(e: any) => handleSee(undefined)}
-        
-      />
-
-    </Dropzone>
-    </>
-  );
-};
+    return (
+        <Dropzone 
+            style={{ minWidth: "505px" }}
+            label="Drag'n drop files here or click to browse"
+            onClean={handleClean}
+            onChange={updateFiles} 
+            value={files}
+            maxFiles={5}
+            // maxFileSize={2998000}
+            url="http://localhost:8000/api/katas/uploadFile"
+            // fakeUploading
+        >
+          {files.map((file: FileValidated) => (
+            <FileItem 
+                {...file} 
+                key={file.id} 
+                onDelete={() => removeFile(file.id)}
+                onSee={handleSee} // image
+                onWatch={handleWatch} //video
+                preview
+                info
+                resultOnTooltip
+                hd
+                localization={"ES-es"}
+                />
+          ))}
+           <FullScreenPreview
+                imgSource={imageSrc}
+                openImage={imageSrc}
+                onClose={(e: any) => handleSee(undefined)}
+            />
+            <VideoPreview
+                videoSrc={videoSrc}
+                openVideo={videoSrc}
+                onClose={(e: any) => handleWatch(undefined)}
+                controls
+                autoplay
+            />
+        </Dropzone>
+      );
+}
