@@ -34,6 +34,7 @@ import Paper from '@mui/material/Paper';
 import { MenuItems } from './MenuItems';
 import { NewEditor } from '../editor/NewEditor';
 import { FileUploader } from '../uploader/FileUploader';
+import { FilePondUploader } from 'components/uploader/FilePondUploader';
 // import { NewEditor } from '../editor/NewEditor';
 //  import { TipTapEditor } from '../editor/TipTapEditor';
 
@@ -205,7 +206,8 @@ export const Dashboard = () => {
                                  {/* <NewEditor />   */}
                                 {/* <TipTapEditor />  */}
                                 {/* File Uploader */}
-                                <FileUploader />
+                                {/* <FileUploader /> */}
+                                <FilePondUploader />
                             </Paper>
                         </Grid>
                     </Container>
