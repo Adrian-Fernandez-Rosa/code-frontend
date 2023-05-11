@@ -110,6 +110,7 @@ export const Dashboard = () => {
     
     // Show / Hide Drawer Menu
     const toggleDrawer = () => {
+        console.log("abierto")
         setOpen(!open);
     } 
 
@@ -178,7 +179,7 @@ export const Dashboard = () => {
                     <Divider />
                     {/* List of menu items */}
                     <List component='nav'>
-                        { MenuItems }
+                        { MenuItems() }
                     </List>
                 </Drawer>
                 {/* Dashboard Content */}
