@@ -35,6 +35,7 @@ import { MenuItems } from './MenuItems';
 import { NewEditor } from '../editor/NewEditor';
 import { FileUploader } from '../uploader/FileUploader';
 import { FilePondUploader } from '../uploader/FilePondUploader';
+import { FileUI } from '../uploader/FileUI';
 // import { NewEditor } from '../editor/NewEditor';
  // import { TipTapEditor } from '../editor/TipTapEditor';
 
@@ -206,8 +207,9 @@ export const Dashboard = () => {
                                  {/* <NewEditor />   */}
                                {/* <TipTapEditor />   */}
                                 {/* File Uploader */}
-                                {/* <FileUploader /> */}
-                                <FilePondUploader />
+                                 {/* <FileUploader />  */}
+                                 {/* <FilePondUploader />  */}
+                                 <FileUI />
                             </Paper>
                         </Grid>
                     </Container>
